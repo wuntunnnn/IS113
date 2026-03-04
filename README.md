@@ -2,4 +2,4 @@
 nodemon server.js 
 
 # Note 
-The database connection is now in the server.js file, so the credentials are exposed. I will move to .env tmr
+.env file is sent in the group chat. Do not push env file inside github!
