@@ -88,22 +88,22 @@ router.post("/login", (req, res) =>{
   
   for (i in USERS){
     if (username === USERS[i].username && password === USERS[i].password){
-      msg = "Username or Password Invalid";
-      res.send(`<p>${msg}</p>
-        <form method="post" action="/login">
-        <label>Username</label></br>
-        <input type="text" name="username"></br>
-        <label>Password</label></br>
-        <input type="password" name="password"></br>
-        </br>
-        <button type="submit">Login</button>
-    </form>
-        `);
+      const user = {username: username, password: password}
+      res.render("user",{user});
     }
+
+    msg = "Username or Password Invalid";
+    res.send(`<p>${msg}</p>
+      <form method="post" action="/login">
+      <label>Username</label></br>
+      <input type="text" name="username"></br>
+      <label>Password</label></br>
+      <input type="password" name="password"></br>
+      </br>
+      <button type="submit">Login</button>
+  </form>
+      `);
   }
-  const user = {username: username, password: password}
-  USERS.push(user);
-  res.render("user",{user});
 });
 
 // END OF ADDING YOUR CODE
