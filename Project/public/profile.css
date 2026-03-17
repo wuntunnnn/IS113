@@ -261,6 +261,37 @@ body {
     margin-bottom: 12px;
 }
 
+.logout-btn {
+    background: #e50914;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background: #c90812;
+}
+
+.profile-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+
+    background-color: #e50914;   /* red background */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;                /* letter color */
+    font-size: 18px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .top-nav {
         padding: 16px 20px;
@@ -293,3 +324,4 @@ body {
         flex-direction: column;
     }
 }
+

@@ -1,28 +1,29 @@
 const Watchlist = require("../models/Watchlist");
-const Movie = require("../models/Movie");
 
 exports.getHomePage = async (req, res) => {
-    try {
-        const watchlistItems = await Watchlist.find({ userId: req.session.userId })
-            .populate("movieId");
+  try {
+    let watchlistMovies = [];
+    let featuredMovie = null;
 
-        const watchlistMovies = watchlistItems
-            .map(item => item.movieId)
-            .filter(movie => movie);
+    if (req.session.userId) {
+      const watchlistItems = await Watchlist.find({ userId: req.session.userId })
+        .populate("movieId");
 
-        let featuredMovie = null;
+      watchlistMovies = watchlistItems
+        .map(item => item.movieId)
+        .filter(movie => movie);
 
-        if (watchlistMovies.length > 0) {
-            featuredMovie = watchlistMovies[0];
-        }
-
-        res.render("home", {
-            username: req.session.username,
-            featuredMovie,
-            watchlistMovies
-        });
-    } catch (err) {
-        console.error(err);
-        res.send("Error loading home page.");
+      if (watchlistMovies.length > 0) {
+        featuredMovie = watchlistMovies[0];
+      }
     }
+
+    res.render("home", {
+      featuredMovie,
+      watchlistMovies
+    });
+  } catch (err) {
+    console.error(err);
+    res.send("Error loading home page.");
+  }
 };

@@ -7,19 +7,7 @@
   <link rel="stylesheet" href="/home.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="/home" class="logo">MovieHub</a>
-      <a href="/home">Home</a>
-      <a href="/watchlist">My Watchlist</a>
-      <a href="/movies">Movies</a>
-    </div>
-
-    <div class="nav-right">
-      <a href="/profile"><%= username %></a>
-      <a href="/logout" class="logout-btn">Logout</a>
-    </div>
-  </nav>
+  <%- include("partials/header") %>
 
   <% if (featuredMovie) { %>
     <section class="hero" style="background-image: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.3)), url('<%= featuredMovie.bannerUrl %>');">

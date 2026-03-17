@@ -27,6 +27,15 @@ app.use(session({
   }
 }));
 
+app.use((req, res, next) => {
+  res.locals.currentUser = {
+    userId: req.session.userId || null,
+    username: req.session.username || null,
+    role: req.session.role || null
+  };
+  next();
+});
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
