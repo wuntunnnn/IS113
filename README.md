@@ -10,4 +10,5 @@ https://docs.google.com/document/d/1zZ4mjdTS9JwLNTCrDTQEP_zih4MVrjYWyMxYAxCLS-c/
 
 .env file is sent in the group chat. Do not push env file inside github!
 
-Hello Git Learning ^^
+Hello Git Learning ^^ 
+hihihi
